@@ -1,0 +1,25 @@
+/* American Odds for Novig — injected label styling.
+   The converted odds are rendered as a CSS ::after pseudo-element so that the
+   extension never inserts or rewrites nodes inside Novig's React tree. */
+
+[data-novig-ao]::after {
+  content: " " attr(data-novig-ao);
+  font-size: 0.86em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  opacity: 0.72;
+  white-space: nowrap;
+  /* inherits colour from the surrounding Novig text, so it works in any theme */
+}
+
+/* Reel (odometer) prices sit in a fixed-height row; keep the label on one line
+   and let it hang beside the digits rather than stretching the row. */
+[data-novig-ao-reel]::after {
+  margin-left: 0.25em;
+  align-self: center;
+}
+
+/* Fallbacks for narrow, clipped price pills: shorter form, then smaller. */
+[data-novig-ao-fit="1"]::after { font-size: 0.8em; }
+[data-novig-ao-fit="2"]::after { font-size: 0.62em; opacity: 0.8; }
