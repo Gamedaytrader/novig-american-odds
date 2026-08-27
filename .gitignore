@@ -1,0 +1,11 @@
+# packaged builds
+*.zip
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# not shipped in the store package
+icons/icon512.png
